@@ -5,7 +5,7 @@
   </button>
   <ul>
     <single-todo
-      v-for="todo in todos"
+      v-for="todo in allTodos"
       :key="todo.id"
       :todo="todo"
     ></single-todo>
@@ -24,7 +24,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(useTodoStore, ["todos"]),
+    ...mapState(useTodoStore, ["todos", "allTodos"]),
     name() {
       return "";
     },

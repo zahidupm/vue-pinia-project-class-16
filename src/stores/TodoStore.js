@@ -17,6 +17,9 @@ export const useTodoStore = defineStore('TodoStore', {
         deleteTodo(id) {
             this.todos = this.todos.filter(todo => todo.id !== id);
         }
+    },
+    // getters
+    getters: {
+        allTodos: (state) => state.todos,
     }
-    // mutations
 });
