@@ -3,6 +3,23 @@
   <button class="font-bold bg-blue-400 p-2 text-white rounded" @click="addTodo">
     Add Todo
   </button>
+  <h1 class="text-2xl font-bold">All</h1>
+  <ul>
+    <single-todo
+      v-for="todo in allTodos"
+      :key="todo.id"
+      :todo="todo"
+    ></single-todo>
+  </ul>
+  <h1 class="text-2xl font-bold">Pending</h1>
+  <ul>
+    <single-todo
+      v-for="todo in allTodos"
+      :key="todo.id"
+      :todo="todo"
+    ></single-todo>
+  </ul>
+  <h1 class="text-2xl font-bold">Complete</h1>
   <ul>
     <single-todo
       v-for="todo in allTodos"
@@ -24,7 +41,12 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(useTodoStore, ["todos", "allTodos"]),
+    ...mapState(useTodoStore, [
+      "todos",
+      "allTodos",
+      "pendingTodos",
+      "completedTodos",
+    ]),
     name() {
       return "";
     },

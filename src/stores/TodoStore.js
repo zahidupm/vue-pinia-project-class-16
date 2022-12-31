@@ -7,6 +7,7 @@ export const useTodoStore = defineStore('TodoStore', {
             {id:1, title: 'Todo', completed: false},
             {id:2, title: 'Todo1', completed: true},
             {id:3, title: 'Todo2', completed: false},
+            {id:4, title: 'Todo3', completed: true},
         ]
     }),
     // actions
@@ -21,5 +22,10 @@ export const useTodoStore = defineStore('TodoStore', {
     // getters
     getters: {
         allTodos: (state) => state.todos,
+        pendingTodos: (state) => state.todos.filter(todo => !todo.completed),
+        completedTodos: (state) => state.todos.filter(todo => todo.completed),
+        allTodosCount: (state) => state.todos.length,
+        pendingTodosCount: (state) => state.todos.filter(todo => !todo.completed),
+        completedTodosCount: (state) => state.todos.filter(todo => todo.completed),
     }
 });
