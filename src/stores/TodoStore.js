@@ -10,5 +10,13 @@ export const useTodoStore = defineStore('TodoStore', {
         ]
     }),
     // actions
+    actions: {
+        addTodo(todo) {
+            this.todos.push(todo);
+        },
+        deleteTodo(id) {
+            this.todos = this.todos.filter(todo => todo.id !== id);
+        }
+    }
     // mutations
 });
