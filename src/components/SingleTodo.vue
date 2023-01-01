@@ -7,6 +7,12 @@
     >
       Delete
     </button>
+    <button
+      @click="handleChangeStatus"
+      class="bg-orange-400 text-white px-4 py-2 rounded"
+    >
+      {{ todo.completed ? "Make Pending" : "Make Complete" }}
+    </button>
   </li>
 </template>
 
@@ -22,6 +28,9 @@ export default {
   methods: {
     handleDelete() {
       useTodoStore().deleteTodo(this.todo.id);
+    },
+    handleChangeStatus() {
+      useTodoStore().changeTodoStatus(this.todo.id);
     },
   },
 };

@@ -17,6 +17,14 @@ export const useTodoStore = defineStore('TodoStore', {
         },
         deleteTodo(id) {
             this.todos = this.todos.filter(todo => todo.id !== id);
+        },
+        changeTodoStatus(id) {
+            this.todos = this.todos.map(todo => {
+                if(todo.id === id) {
+                    todo.completed = !todo.completed;
+                }
+                return todo;
+            })
         }
     },
     // getters
